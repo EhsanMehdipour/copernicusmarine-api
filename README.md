@@ -1,41 +1,64 @@
 # Copernicus Marine Toolbox
+This repository explains the methods to download datasets from copernicus marine service API functionality.
 
+# Setup
 
-CMEMS Deprecated services:
-- MOTU
-- OPeNDAP
-- FTP
+## 1. Conda environment setup
 
-<img src="./CMEMS_systems.png" style="width: 700px;"/>
+A dedicated Conda environment should be created to install the Copernicus Marine Service toolbox and the associated scientific Python libraries. This environment is intended for data download, preliminary inspection, and basic visualization of the retrieved datasets.
 
-## Replaced services [link](https://help.marine.copernicus.eu/en/collections/4062675-main-functionalities)
-
-### 1. Command Line Interface (CLI) [link](https://help.marine.copernicus.eu/en/collections/5820990-command-line-interface-cli)
-
-### 2. Python Library API: [link](https://help.marine.copernicus.eu/en/collections/5821001-python-library-api)
-- MOTU --> subset [link](https://help.marine.copernicus.eu/en/articles/8283072-copernicus-marine-toolbox-api-subset)
-- OPeNDAP --> open_dataset (read_dataframe) [link](https://help.marine.copernicus.eu/en/articles/8287609-copernicus-marine-toolbox-api-open-a-dataset-or-read-a-dataframe-remotely) 
-- FTP --> get (Also online) [link](https://help.marine.copernicus.eu/en/articles/8286883-copernicus-marine-toolbox-api-get-original-files)
-
-
-
-
-## New services Advantages
-- No Quota
-- Faster Downloading
+An example Conda environment definition file, `cmems.yaml`, is provided below.
 
 ---
 
-## Getting started
-
-Python version: Python >= 3.9 and <3.12. [installation](https://help.marine.copernicus.eu/en/articles/7970514-copernicus-marine-toolbox-installation)
-
-Install the  python module using the following command:
-
+```yaml
+name: cmems
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - copernicusmarine
+  - xarray
+  - netcdf4
+  - h5netcdf
+  - cftime
+  - numpy
+  - pandas
+  - dask
+  - scipy
+  - matplotlib
+  - cartopy
+  - tqdm
+  - pyyaml
+  - ipython
+  - ipykernel
+  - ipywidgets
+  - bottleneck
 ```
-pip install copernicus-marine-client
+
+---
+
+The environment can then be created using:
+
+```bash
+conda env create -f cmems.yml
 ```
 
-## Python API
+---
 
-You can find the Python API services in the [Copernicus_Marine_Toolbox.ipynb](Copernicus_Marine_Toolbox.ipynb)
+## 2. Environment activation and Jupyter configuration
+
+After installation, the environment should be activated and registered as a Jupyter kernel to ensure that all subsequent notebook-based workflows use the correct Python environment.
+
+---
+
+## 3. Copernicus Marine authentication
+
+To enable authenticated access to the Copernicus Marine Service, user credentials should be configured once at the system level. This can be achieved by executing the login command in a terminal session, which generates a local credential file. This file allows repeated data access without re-entering authentication details for each download request.
+
+```bash
+conda activate cmems
+copernicusmarine login
+```
+
+Please follow the `Copernicus_Marine_Toolbox.ipynb` for the descriptions of the several downloading methods.
