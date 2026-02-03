@@ -1,0 +1,22 @@
+name: cmems
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - copernicusmarine
+  - xarray
+  - netcdf4
+  - h5netcdf
+  - cftime
+  - numpy
+  - pandas
+  - dask
+  - scipy
+  - matplotlib
+  - cartopy
+  - tqdm
+  - pyyaml
+  - ipython
+  - ipykernel
+  - ipywidgets
+  - bottleneck
