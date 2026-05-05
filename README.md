@@ -7,7 +7,7 @@ This repository explains the methods to download datasets from copernicus marine
 
 A dedicated Conda environment should be created to install the Copernicus Marine Service toolbox and the associated scientific Python libraries. This environment is intended for data download, preliminary inspection, and basic visualization of the retrieved datasets.
 
-An example Conda environment definition file, `cmems.yaml`, is provided below.
+An example Conda environment definition file, `environment.yml`, is provided below.
 
 ---
 
@@ -16,7 +16,7 @@ name: cmems
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python
   - copernicusmarine
   - xarray
   - netcdf4
@@ -29,19 +29,15 @@ dependencies:
   - matplotlib
   - cartopy
   - tqdm
-  - pyyaml
-  - ipython
   - ipykernel
-  - ipywidgets
-  - bottleneck
 ```
 
 ---
 
-The environment can then be created using:
+The environment can then be created using `mamba` for parallel downloading and faster installation:
 
 ```bash
-conda env create -f cmems.yml
+mamba env create -f environment.yml
 ```
 
 ---
