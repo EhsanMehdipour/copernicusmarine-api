@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository explains the methods to download datasets from copernicus marine service API functionality.
+This repository provides tutorials and example workflows for downloading and accessing datasets from the Copernicus Marine Service using its API. It includes Jupyter notebooks demonstrating various download methods, data processing, and visualization techniques for marine data.
 
 ## Setup
 
