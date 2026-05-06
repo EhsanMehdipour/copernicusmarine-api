@@ -1,4 +1,4 @@
-# Copernicus Marine Toolbox
+# Copernicus Marine Toolbox Data Access
 This repository explains the methods to download datasets from copernicus marine service API functionality.
 
 # Setup
@@ -6,33 +6,6 @@ This repository explains the methods to download datasets from copernicus marine
 ## 1. Conda environment setup
 
 A dedicated Conda environment should be created to install the Copernicus Marine Service toolbox and the associated scientific Python libraries. This environment is intended for data download, preliminary inspection, and basic visualization of the retrieved datasets.
-
-An example Conda environment definition file, `environment.yml`, is provided below.
-
----
-
-```yaml
-name: cmems
-channels:
-  - conda-forge
-dependencies:
-  - python
-  - copernicusmarine
-  - xarray
-  - netcdf4
-  - h5netcdf
-  - cftime
-  - numpy
-  - pandas
-  - dask
-  - scipy
-  - matplotlib
-  - cartopy
-  - tqdm
-  - ipykernel
-```
-
----
 
 The environment can then be created using `mamba` for parallel downloading and faster installation:
 
@@ -45,6 +18,18 @@ mamba env create -f environment.yml
 ## 2. Environment activation and Jupyter configuration
 
 After installation, the environment should be activated and registered as a Jupyter kernel to ensure that all subsequent notebook-based workflows use the correct Python environment.
+
+Activate the environment:
+
+```bash
+conda activate cmems
+```
+
+Then, install the kernel for Jupyter:
+
+```bash
+python -m ipykernel install --user --name cmems --display-name "Copernicus Marine"
+```
 
 ---
 
